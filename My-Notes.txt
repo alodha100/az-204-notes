@@ -1,0 +1,863 @@
+App service features
+
+==========================
+
+1. PAAS platform 
+2. supports windows and Linux both 
+3. supports multiple languanges 
+4. supports containers - Docker 
+5. Inbuild security 
+6. Inbuild autoscaling 
+7. supports HS and VS 
+8. Inbuild load balancer 
+9. Authentication and authorization 
+10. Supports deployment slots ==> blue green deployment 
+11. Also supports global LBs - traffic manager and front door 
+12. supports 4 types of apps - web app, api apps, function apps and mobile apps 
+13. supports CI/CD 
+
+====================================================
+Storage Replications
+================
+
+1. LRS 
+2. ZRS 
+3. GRS 
+4. GZRS 
+5. RA-GRS 
+6. RA-GZRS 
+========================
+Life cycle management 
+
+Access tier
+================
+Hot ==> cool ==> archive
+
+-------------------------
+
+
+{
+  "rules": [
+    {
+      "enabled": true,
+      "name": "myrulez",
+      "type": "Lifecycle",
+      "definition": {
+        "actions": {
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 180
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 365
+            }
+          }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ]
+        }
+      }
+    }
+  ]
+}
+
+=============================
+2nd day 
+--------------
+
+1. Cosmosdb 
+2. Infra services - VM, ACI, ACR  and ARM template 
+3. Microsoft identity platform 
+
+1st day recap 
+--------------------
+
+Module 1 
+----------
+Azure app service 
+-------------------
+1. PAAS 
+2. supports linux and windows
+
+
+1. Manual 
+2. Schedule 
+3. Autoscaling - based on rules and metrics 
+
+
+Blob storage 
+-----------------
+1. Storage account 
+2. Types of storage 
+
+a. Blob
+b. file 
+c. table 
+d. queue 
+
+Performance tiers 
+----------------------
+1. Standard and ===> HDD 
+2. premium ===> SSD 
+
+Access tier
+----------------
+1. hot 
+2. cool = minimum 30 days 
+3. archieve = 180 days 
+
+life cycle management - JSON 
+
+-----------------
+Types of data supported by No-SQL 
+
+1. Key value
+2. Documents 
+3. Graph 
+4. columner data 
+
+Cosmosdb 
+=================
+1. Collection of no sql dbs 
+
+a. Core SQL 
+b. Tables 
+3. Mongodb 
+4. Cassandra 
+5. Gremlin 
+
+Mapping 
+=================
+a. Core SQL = Documents - JSON 
+b. Tables = Key/Value 
+3. Mongodb = Document and key/value 
+4. Cassandra = Columner data 
+5. Gremlin = Graph 
+
+
+Cosmosdb features 
+-------------------
+1. Multiple engines 
+2. Multi master replication 
+3. Turn key replication 
+4. Supports both read and read&write replicas 
+5. Super fast 
+6. Extreamly scalable 
+7. Auto backup
+8. Auto indexing 
+9. Auto partitioning 
+10. Multiple consistency levels 
+11. Stored procedures, UDF, Triggers - Java script 
+
+
+Cosmosdb Hierarchy
+---------------------------
+1. Cosmosdb  account 
+
+2. Database = Multiple databases 
+
+3. Container = Multiple containers - Tables 
+
+4. Items = What we store 
+
+
+Cosmosdb Consistency 
+======================
+
+1. Strong 
+2. Eventual 
+3. Consistent prefix 
+4. Bounded staleness 
+5. session 
+
+Replication - 
+
+RDBMS consistency = Strong 
+
+------------------------------------
+1. Stored procedures
+
+2. User defined fuctions 
+
+3. Triggers 
+
+Pre Triggers ===> before insert 
+post triggers 
+
+
+Script - Javascript - Container - you can call them multiple times, whenever you want 
+
+Queries - stored procedures
+------------------------------
+
+User defined functions ===> a function which can be used inside a query 
+
+
+==================
+
+Cosmosdb 
+-----------
+
+1. Features 
+2. APIs supported - Core sql, mongodb, cassandra, gremlin and tables 
+3. Replication - Read replicas, R/W replicas, Zone replicas 
+4. Consistency model - 
+5. Partitioning - partition key is important 
+6. Hierarchy
+7. Stored procedures, UDF and triggers 
+
+Types of data - Structured, unstructured and semi-structured 
+
+ARM template components 
+==============================
+Infrastructure as code ==> IAC 
+
+1. Schema 
+2. Version 
+3. Resources 
+4. Parameters 
+5. Variables 
+6. Functions 
+7. Outputs 
+8. Metadata 
+
+Mandatory field
+================
+1. Schema 
+2. Version
+3. Resources 
+
+
+Container services in Azure 
+=================================
+
+1. ACR - Azure container registry 
+2. ACI - Azure container Instance 
+3. AKS - Azure Kubernetes Service 
+4. App services 
+5. Service fabric 
+6. Inside a VM 
+
+Docker components 
+========================
+1. Docker server - docker engine -docker daemon 
+2. Docker client 
+3. Docker images 
+4. Docker containers 
+5. Docker host 
+6. Docker registry = hub.docker.com or your personal regitry - ACR - Azure container registry 
+7. Docker file = How to create your own container - by docker file 
+
+-------------------
+Docker commands - Docker client 
+
+
+Recap of day 2
+===================
+1. Structured, un, semi 
+2. sql vs no-sql ===> 3 important differances 
+3. Cosmosdb - mongo, core sql, gremlin, cassandra and table 
+4. Data types - keyvalue , documnet, graph and columner 
+5. account -> database -> containers -> Items 
+6. logical and physical - 
+7. RU - cpu, memory, IOPS 
+8. Provisioned and serverless
+9. What is the limit of cosmosdb storage - unlimited 
+
+10. Consistency levels 
+-------------------------
+a. Strong 
+b. Bounded staleness 
+c. Session
+d. Consistent prefix 
+e. eventual 
+
+11. Multi master replication - turn key replication 
+
+
+==============================
+
+Infrastructure services 
+----------------------------
+
+>>> IAC - infra as code 
+>>> ARM templates 
+
+ARM template components 
+--------------------------
+1. Schema 
+2. Version 
+3. Parameters 
+4. Variables 
+5. Resources 
+6. Output 
+7. Functions 
+8. Metadata 
+
+Mandatory fields 
+-------------------
+1. Schema 
+2. Version 
+3. Resources 
+
+Virtual machines 
+----------------------
+1. HOw to create VM
+2. It's components 
+3. How to use extensions 
+4. What is an image of a vm 
+
+5. Availability of the VM 
+------------------------------
+
+1. Availability zones ==> 99.99% 
+2. Availability set ====> 99.95%. Fault domain (3)  and update domain (20). 
+3. VMSS - virtual machine scale set 
+
+
+One single vm using premium storage = 99.9% 
+
+
+3rd Day
+===========
+===========
+
+Docker file commands 
+=====================
+
+1. FROM = base image 
+2. MAINTENER
+3. RUN ===> create the layers in the image 
+4. COPY
+5. EXPOSE
+6. WORKDIR
+7. CMD ===> this command will run when you run the image as a container 
+8. ENTYPOINT 
+9. 
+
+docker build <file name> 
+# 
+----------------------------
+FROM ubuntu 
+
+RUN touch file1 
+RUN touch file2 
+
+CMD ls -l 
+
+=============================
+docker tag d26191518658 youracr.azurecr.io/nodeapp.1
+docker push youracr.azurecr.io/nodeapp.1
+
+
+Functions
+===============
+1. What is serverless 
+2. Serverless Vs PAAS 
+3. Azure Function 
+4. Event driven/ Trigger driven architecture 
+
+a. Consumption plan - true serverless 
+b. App service plan
+c. Premium plan 
+
+4. Binding 
+
+a. input ===> multiple inputs 
+b. output ===> multiple outputs 
+
+One and only trigger 
+
+Integration 
+-------------
+a. Blob
+b. Table 
+c. Queue 
+d. Event hub 
+e. Service bus 
+f. Cosmosdb
+
+Funtion file 
+Function.json = set the binding 
+host.json file = other parameters, concurrent execution, limit setup 
+
+Func ==> commad line 
+
+Durable function 
+====================
+Components 
+---------------
+1. Client 
+
+2. Orchestrator 
+
+3. Activity function ===> performs the task
+
+4. Entity function ===> for session 
+
+patterns 
+-----------------
+1. Function chaining 
+2. Fan in/Fan out 
+3. HTTP aysn 
+4. Monitor 
+5. Manual intervention 
+
+Identity platform 
+========================
+MSAL - 
+
+Idenity provider ===> Microsoft identity platform 
+Service provider 
+
+Microsoft Graph API 
+---------------------
+
+Using which you can access AAD, M365, 3rd parties also suppored 
+
+Service principle 
+====================
+Application registered with AAD 
+
+>>> SP with secrets 
+>>> SP with certificates 
+
+4th day - Topics and recap 
+===========================
+###########################
+
+Key vault 
+================
+================
+
+Digital valuables 
+===========================
+
+1. Secret = passwords, licenses, API keys, 
+
+2. Key ===> encryption keys 
+
+3. Certificates ===> Https, SSL, TLS certificates 
+
+
+>>> Key vault 
+
+a. Standard - Folder based 
+b. Premium - HSM - Hardware security module 
+
+Access policy 
+===================
+1. Service principle 
+2. Managed identity 
+3. RBAC permission 
+
+
+SAS keys 
+================
+Shared access signature 
+
+1. User delegated SAS - only for blob using AAD 
+2. Account SAS => for the entire storage account or multiple storages 
+3. Service SAS ==> only for a service like blob, table or file 
+
+
+Managed identity ====> Service principle managed. 
+===================
+Types of identity
+
+1. System managed 
+2. User managed 
+
+Differances 
+----------------
+1. SMI is tied to the resource only, if the resource is deleted the SMI will be deleted. 
+2. SMI is one to one mapping, i.e. it can be assgined only to a resource 
+3. UMI can be assgined to many. One to many assignement 
+4. Even if you delete the resource, the UMI will not be deleted. 
+
+
+Azure app configuration 
+---------------------------
+
+A service to store env variables, configuration data, secrets (coming from the key vault)  feature flag of your application in a decoupled manner. 
+
+
+APIM - API management 
+=========================
+
+Products
+=============
+
+Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and are configured with a title, description, and terms of use. Products can be Open or Protected. Protected products must be subscribed to before they can be used, while open products can be used without a subscription. Subscription approval is configured at the product level and can either require administrator approval, or be auto-approved.
+
+Groups
+=============
+
+Groups are used to manage the visibility of products to developers. API Management has the following immutable system groups:
+
+Administrators
+------------------
+
+ - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.
+ 
+ 
+Developers
+------------------
+
+ - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
+ 
+ 
+Guests
+--------------------
+
+ - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
+ 
+ 
+In addition to these system groups, administrators can create custom groups or leverage external groups in associated Azure Active Directory tenants.
+
+Developers
+--------------------
+
+Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the Developer portal. Each developer is a member of one or more groups, and can subscribe to the products that grant visibility to those groups.
+
+Policies
+--------------------
+
+Policies are a powerful capability of API Management that allow the Azure portal to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the number of incoming calls from a developer, and many other policies are available.
+
+Developer portal
+----------------------
+
+The developer portal is where developers can learn about your APIs, view and call operations, and subscribe to products. Prospective customers can visit the developer portal, view APIs and operations, and sign up. The URL for your developer portal is located on the dashboard in the Azure portal for your API Management service instance.
+
+
+Event Grid 
+===========
+===========
+
+1. What is event grid 
+2. What is pub/sub 
+3. Why pub/sub 
+4. Event driven 
+5. Used for decoupling your application 
+
+Components 
+--------------
+1. Publishers 
+2. Topic 
+3. Subscribers 
+4. Handlers 
+
+>>> Events has a schema 
+>>> You can store only for 1 day
+>>> 30 retries are possible 
+>>> You can setup expiry 
+>>> You can filter 
+
+Event grid domain 
+---------------------
+Collection of Event grid sharing the same namespace and endpoint 
+
+Examples 
+------------------
+1. Airport app
+2. Employee joining 
+3. VM created 
+4. A resource is created in azure 
+5. Blob getting uploaded 
+
+
+Event hub 
+============
+============
+
+> It is a big data tool 
+> It is used to capture real time streaming data 
+> It is serverless 
+> Millions of events per sec 
+
+> for standard = 7 days 
+> for premium = 90 days 
+
+> This is also a pub/sub model 
+> Publishers and consumers 
+
+> Event hub can not run any analytics for you, you have to ingest the data to azure stream analytics or databrick cluster of azure synapse, hdinsight 
+
+> You can capture real time as well as inside the storage for batch processing 
+
+
+Queues ==> Service Bus and Storage queue 
+===========================================
+
+1. What is a queue 
+2. Why do we need a queue 
+3. Coupling - tight, loose and decouple 
+4. Architectural patterns 
+
+Service Bus 
+==================
+
+1. You create namespace 
+2. Supports queue and topics both 
+3. Basic, standard and premium plans 
+4. Supports many advance features 
+
+a. up to 1 mb of message size 
+b. supports FIFO 
+c. Supports deplicate detection 
+d. Supports reply and acknowledgement 
+e. supports peeking 
+f. supports locking 
+g. many days of storage 
+h. only 80 GB is supported 
+
+Storage queue 
+======================
+1. Simpler 
+2. for dev and test 
+3. less features 
+4. supports only 64kb messages 
+5. No support for duplicate detection, FIFO etc 
+
+Monitoring 
+===================
+
+1. Metrics 
+2. Logs ===> KQL 
+3. Alerts 
+4. Insights - app insights 
+
+> for each and every service there is a monitoring tab in Azure 
+
+>> YOu can monitor all the services from one single central location = Azure monitor 
+
+
+Logs 
+=============
+1. Activity log 
+2. Diagonistic logs ==> resource logs 
+3. OS logs 
+4. Application logs 
+5. AAD logs 
+
+
+Alerts 
+===========
+Based on conditions you set the alerts 
+
+
+1. Rules 
+2. Action groups 
+
+3. Notification - email, sms, push notification, voice call 
+
+4. Action - 
+-----------------------------
+a. running a function app 
+b. Running a runbook
+c. Logic app 
+d. Web hooks 
+e. ITSM - It service managment - service now, remedy ====> the alert to on-prem 
+
+
+Redis
+================
+
+Key scenarios
+=================
+
+Data cache
+---------------
+ - Databases are often too large to load directly into a cache. It's common to use the cache-aside pattern to load data into the cache only as needed. When the system makes changes to the data, the system can also update the cache, which is then distributed to other clients.
+ 
+ 
+Content cache
+---------------
+
+ - Many web pages are generated from templates that use static content such as headers, footers, banners. These static items shouldn't change often. Using an in-memory cache provides quick access to static content compared to backend datastores.
+ 
+ 
+Session store
+----------------
+
+ - This pattern is commonly used with shopping carts and other user history data that a web application might associate with user cookies. Storing too much in a cookie can have a negative effect on performance as the cookie size grows and is passed and validated with every request. A typical solution uses the cookie as a key to query the data in a database. Using an in-memory cache, like Azure Cache for Redis, to associate information with a user is much faster than interacting with a full relational database.
+ 
+ 
+Job and message queuing
+-------------------------
+
+ - Applications often add tasks to a queue when the operations associated with the request take time to execute. Longer running operations are queued to be processed in sequence, often by another server. This method of deferring work is called task queuing.
+ 
+ 
+Distributed transactions
+--------------------------
+
+ - Applications sometimes require a series of commands against a backend data-store to execute as a single atomic operation. All commands must succeed, or all must be rolled back to the initial state. Azure Cache for Redis supports executing a batch of commands as a single transaction.
+
+Service tiers
+----------------
+
+
+Basic - An OSS Redis cache running on a single VM. This tier has no service-level agreement (SLA) and is ideal for development/test and non-critical workloads.
+
+
+
+Standard - An OSS Redis cache running on two VMs in a replicated configuration.
+
+
+Premium - High-performance OSS Redis caches. This tier offers higher throughput, lower latency, better availability, and more features. Premium caches are deployed on more powerful VMs compared to the VMs for Basic or Standard caches.
+
+
+Enterprise - High-performance caches powered by Redis Labs' Redis Enterprise software. This tier supports Redis modules including RediSearch, RedisBloom, and RedisTimeSeries. Also, it offers even higher availability than the Premium tier.
+
+
+Enterprise Flash - Cost-effective large caches powered by Redis Labs' Redis Enterprise software. This tier extends Redis data storage to non-volatile memory, which is cheaper than DRAM, on a VM. It reduces the overall per-GB memory cost
+
+
+CDN
+=======
+=======
+
+1. Microsoft CDN
+2. Akamai CDN
+3. Verizone standard 
+4. Verizone premium 
+
+
+Configuration options
+========================
+
+
+Caching rules. Caching rules can be either global (apply to all content from a specified endpoint) or custom. Custom rules apply to specific paths and file extensions.
+Query string caching. Query string caching enables you to configure how Azure CDN responds to a query string. Query string caching has no effect on files that can't be cached.
+
+Caching rules:
+Ignore query strings. This option is the default mode. A CDN POP simply passes the request and any query strings directly to the origin server on the first request and caches the asset. New requests for the same asset will ignore any query strings until the TTL expires.
+Bypass caching for query strings. Each query request from the client is passed directly to the origin server with no caching.
+Cache every unique URL. Every time a requesting client generates a unique URL, that URL is passed back to the origin server and the response cached with its own TTL. This final method is inefficient where each request is a unique URL, as the cache-hit ratio becomes low.
+
+
+Microsoft Azure CDN
+=============================
+
+Microsoft Azure CDN works on the same model as explained above.
+Azure CDN rapidly delivers the content by caching its physical nodes across the world.
+Azure CDN 
+Azure can also serve the dynamic content too like shopping cart, search results which are not cached by using dynamic site acceleration (DSA)
+To start to utilize these features, you must have at least one Azure subscription and a CDN profile.
+CDN profile is a collection of endpoints that have configurations of content delivery and access.
+Please note that Azure pricing is based on the CDN profile.
+It is best for...
+Application having multiple rounds of trips to the servers
+Serves the content from the edge server which minimizes the load on origin server with less traffic.
+Delivering static content such as images, videos, style sheets, client-side scripts, and HTML pages to reduce latency
+
+
+Features
+===============
+
+> We can configure custom HTTPS domains on Azure CDN for robust security.
+> Azure diagnostics logs allow you to export basic usage metrics from your CDN endpoint.
+> It has integration with other Azure resources like web apps, media storages, blob, event hubs, log monitoring, etc.
+> We can enable the compression of files in Azure CDN to improve the performance.
+> It has a massive capacity, with its global presence to handle heavy loads and sudden traffic rise.
+> Azure CDN integrates with services from Akamai and Verizon, enabling customers to select the right solution for their needs.
+> Azure CDN has API’s to consume it and do further analytics.
+> Azure prices – pay as you use, no upfront and termination fees.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
